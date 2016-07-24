@@ -7,7 +7,6 @@ import java.io.*;
 import sun.audio.*;
 
 /**
- *
  * @author reprise
  */
 public class timer extends javax.swing.JFrame {
@@ -109,37 +108,34 @@ public class timer extends javax.swing.JFrame {
 
     //Start timing.  keep going until stop.
     private void GObuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GObuttonActionPerformed
-    dosage = dosageCombobox.getSelectedIndex();
+    dosage = dosageCombobox.getSelectedIndex();        
+    
     if (dosage == 0){
-        seconds = 10;
+        seconds = 82;
         System.out.println(" Counting 1 dose of Prayer Potion for " + seconds + " seconds." +  "   Selected_index: " + dosage);
-        screen.setText("10");
-        //82 seconds
+        screen.setText("82");
         
+        //Set properties of the progress bar.
+        timeProgressBar.setMinimum(0);
+        timeProgressBar.setMaximum(82);
+        
+        //run timer task.
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                //System.out.print(seconds + ", ");
-                seconds--;
-                ticks++;
+                seconds--;  //count down seconds
+                ticks++;    //how many seconds have gone by this run?
                 sSeconds = Integer.toString(seconds);
                 screen.setText(sSeconds);
               
-                //update the progress bar.                                      *this code is incorrect now.
-                completion = (ticks / 10) * 100;
-                System.out.println(completion + " " + ticks);
-                timeProgressBar.setValue((int) completion);
-              
-              
+                //update the progress bar.                                      
+                timeProgressBar.setValue(ticks);
+                
                 //times up, ALERT ME to drink another potion.
                 if (seconds == 0){
                     screen.setText("TIME!");
                     System.out.println(seconds);
-                }
-                //keep the message up for 3 more seconds while I'm being alerted. 
-                else if (seconds <0 && seconds > -4){
-                    screen.setText("TIME!");
-
+                    
                     //play a noise.
                     try{
                         AudioStream audioStream = new AudioStream(inputStream);
@@ -150,25 +146,31 @@ public class timer extends javax.swing.JFrame {
                         System.out.println(e);
                     }
                 }
+                //keep the message up for 3 more seconds while I'm being alerted. 
+                else if (seconds <0 && seconds > -4){
+                    screen.setText("TIME!");
+                }
 
-                //ok, reset the counter back, doing another countdown. don't cancel the timer.
+                //RESET & run timer again.
                 else if (seconds == -4){
-                    seconds = 10;
+                    seconds = 82;
+                    ticks = 0;
+                    
                     System.out.println(seconds);
                     sSeconds = Integer.toString(seconds);
                     screen.setText(sSeconds);
-                  }
+                    timeProgressBar.setValue(ticks);
                 }
-            }, 1000,1000);
-        } 
-        else if (dosage == 1){
-            seconds = 165;
-            System.out.println(" Counting 2 doses of Prayer Potion for " + seconds + " seconds." +  " Selected_index: " + dosage);
+            }
+        }, 1000,1000);
+    } 
+    else if (dosage == 1){
+        seconds = 165;
+        System.out.println(" Counting 2 doses of Prayer Potion for " + seconds + " seconds." +  " Selected_index: " + dosage);
 
             //now do the thing.
 
         }
-    
     }//GEN-LAST:event_GObuttonActionPerformed
 
     private void STOPbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_STOPbuttonActionPerformed
@@ -221,12 +223,10 @@ public class timer extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     //Globals
-    float completion = 0;                   //the percent that the timer has completed on its quest to 0.
-    int ticks = 0;                          //counts how many secons have passed used to find completon %.
+    int ticks = 0;                          //how many seconds have gone by?
+    int seconds;                            //how many seconds to count down, & increment this var downward.
     int dosage = 0;                         //combobox index.  how many doses of prayer potion to count down for.
-    int seconds;                            //how many seconds to count down 
     String sSeconds;                        //string version of seconds to send to label.                 
-    //boolean stopped;                      //is the timer going or not?
     final Timer timer = new Timer();        //timer object
     InputStream inputStream = getClass().getResourceAsStream("nmztimer/sounds/demonstrative.ogg");
                                             //the sound file declaration
