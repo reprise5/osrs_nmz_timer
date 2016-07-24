@@ -108,68 +108,115 @@ public class timer extends javax.swing.JFrame {
 
     //Start timing.  keep going until stop.
     private void GObuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GObuttonActionPerformed
-    dosage = dosageCombobox.getSelectedIndex();        
-    
-    if (dosage == 0){
-        seconds = 82;
-        System.out.println(" Counting 1 dose of Prayer Potion for " + seconds + " seconds." +  "   Selected_index: " + dosage);
-        screen.setText("82");
-        
-        //Set properties of the progress bar.
-        timeProgressBar.setMinimum(0);
-        timeProgressBar.setMaximum(82);
-        
-        //run timer task.
-        timer.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                seconds--;  //count down seconds
-                ticks++;    //how many seconds have gone by this run?
-                sSeconds = Integer.toString(seconds);
-                screen.setText(sSeconds);
-              
-                //update the progress bar.                                      
-                timeProgressBar.setValue(ticks);
-                
-                //times up, ALERT ME to drink another potion.
-                if (seconds == 0){
-                    screen.setText("TIME!");
-                    System.out.println(seconds);
-                    
-                    //play a noise.
-                    try{
-                        AudioStream audioStream = new AudioStream(inputStream);
-                        AudioPlayer.player.start(audioStream);
-                        //^NULL POINTER EXCEPTION.                              *fix
-                    }
-                    catch (Exception e){
-                        System.out.println(e);
-                    }
-                }
-                //keep the message up for 3 more seconds while I'm being alerted. 
-                else if (seconds <0 && seconds > -4){
-                    screen.setText("TIME!");
-                }
+        dosage = dosageCombobox.getSelectedIndex();        
 
-                //RESET & run timer again.
-                else if (seconds == -4){
-                    seconds = 82;
-                    ticks = 0;
-                    
-                    System.out.println(seconds);
+        if (dosage == 0){
+            seconds = 82;
+            System.out.println(" Counting 1 dose of Prayer Potion for " + seconds + " seconds." +  "   Selected_index: " + dosage);
+            screen.setText("82");
+
+            //Set properties of the progress bar.
+            timeProgressBar.setMinimum(0);
+            timeProgressBar.setMaximum(82);
+
+            //run timer task.
+            timer.scheduleAtFixedRate(new TimerTask() {
+                @Override
+                public void run() {
+                    seconds--;  //count down seconds
+                    ticks++;    //how many seconds have gone by this run?
                     sSeconds = Integer.toString(seconds);
                     screen.setText(sSeconds);
+
+                    //update the progress bar.                                      
                     timeProgressBar.setValue(ticks);
+
+                    //times up, ALERT ME to drink another potion.
+                    if (seconds == 0){
+                        screen.setText("TIME!");
+                        System.out.println(seconds);
+
+                        //play a noise.
+                        try{
+                            AudioStream audioStream = new AudioStream(inputStream);
+                            AudioPlayer.player.start(audioStream);
+                            //^NULL POINTER EXCEPTION.                              *fix
+                        }
+                        catch (Exception e){
+                            System.out.println(e);
+                        }
+                    }
+                    //keep the message up for 3 more seconds while I'm being alerted. 
+                    else if (seconds <0 && seconds > -4){
+                        screen.setText("TIME!");
+                    }
+
+                    //RESET & run timer again.
+                    else if (seconds == -4){
+                        seconds = 82;
+                        ticks = 0;
+
+                        System.out.println(seconds);
+                        sSeconds = Integer.toString(seconds);
+                        screen.setText(sSeconds);
+                        timeProgressBar.setValue(ticks);
+                    }
                 }
-            }
-        }, 1000,1000);
-    } 
-    else if (dosage == 1){
-        seconds = 165;
-        System.out.println(" Counting 2 doses of Prayer Potion for " + seconds + " seconds." +  " Selected_index: " + dosage);
+            }, 1000,1000);
+        } 
+        else if (dosage == 1){
+            seconds = 165;
+            System.out.println(" Counting 2 doses of Prayer Potion for " + seconds + " seconds." +  " Selected_index: " + dosage);
+            screen.setText("165");
 
-            //now do the thing.
+            //Set properties of the progress bar.
+            timeProgressBar.setMinimum(0);
+            timeProgressBar.setMaximum(165);
 
+            //run timer task.
+            timer.scheduleAtFixedRate(new TimerTask() {
+                @Override
+                public void run() {
+                    seconds--;  //count down seconds
+                    ticks++;    //how many seconds have gone by this run?
+                    sSeconds = Integer.toString(seconds);
+                    screen.setText(sSeconds);
+
+                    //update the progress bar.                                      
+                    timeProgressBar.setValue(ticks);
+
+                    //times up, ALERT ME to drink another potion.
+                    if (seconds == 0){
+                        screen.setText("TIME!");
+                        System.out.println(seconds);
+
+                        //play a noise.
+                        try{
+                            AudioStream audioStream = new AudioStream(inputStream);
+                            AudioPlayer.player.start(audioStream);
+                            //^NULL POINTER EXCEPTION.                              *fix
+                        }
+                        catch (Exception e){
+                            System.out.println(e);
+                        }
+                    }
+                    //keep the message up for 3 more seconds while I'm being alerted. 
+                    else if (seconds <0 && seconds > -4){
+                        screen.setText("TIME!");
+                    }
+
+                    //RESET & run timer again.
+                    else if (seconds == -4){
+                        seconds = 165;
+                        ticks = 0;
+
+                        System.out.println(seconds);
+                        sSeconds = Integer.toString(seconds);
+                        screen.setText(sSeconds);
+                        timeProgressBar.setValue(ticks);
+                    }
+                }
+            }, 1000,1000);
         }
     }//GEN-LAST:event_GObuttonActionPerformed
 
