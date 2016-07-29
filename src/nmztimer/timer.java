@@ -181,12 +181,26 @@ public class timer extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //reset the clock based on dosagebox selected index.
     private void RESETbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RESETbuttonActionPerformed
-
+        if (dosage == 0){
+             seconds = 82;
+            ticks = 0;
+             
+            sSeconds = Integer.toString(seconds);
+            screen.setText(sSeconds);
+            timeProgressBar.setValue(ticks);
+        }
+        else if (dosage == 1){
+            seconds = 165;
+            ticks = 0;
+            
+            sSeconds = Integer.toString(seconds);
+            screen.setText(sSeconds);
+            timeProgressBar.setValue(ticks);
+        }
     }//GEN-LAST:event_RESETbuttonActionPerformed
-
-    //==================================PRAYER=POTIONS==================================
-    
+ 
     //Start timing PRAYER POTIONS
     private void GObuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GObuttonActionPerformed
         dosage = dosageCombobox.getSelectedIndex();
