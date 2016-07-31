@@ -62,7 +62,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="jPanel1">
+        <Container class="javax.swing.JPanel" name="PrayerPotionPanel">
           <Properties>
             <Property name="toolTipText" type="java.lang.String" value="Counts down doses of prayer potion"/>
           </Properties>
@@ -183,7 +183,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="jPanel3">
+        <Container class="javax.swing.JPanel" name="nothingPanel">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Nothing">
@@ -200,13 +200,13 @@
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jPasswordField1" min="-2" pref="126" max="-2" attributes="0"/>
-                                  <Component id="jTextField1" min="-2" pref="126" max="-2" attributes="0"/>
+                                  <Component id="nothingpasswordfield" min="-2" pref="126" max="-2" attributes="0"/>
+                                  <Component id="nothingusernamefield" min="-2" pref="126" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
-                              <Component id="jButton1" min="-2" pref="75" max="-2" attributes="0"/>
+                              <Component id="nothingbutton" min="-2" pref="75" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="92" max="32767" attributes="0"/>
@@ -217,33 +217,33 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                      <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
+                      <Component id="nothingusernamefield" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPasswordField1" min="-2" max="-2" attributes="0"/>
+                      <Component id="nothingpasswordfield" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="nothingbutton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="47" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JPasswordField" name="jPasswordField1">
+            <Component class="javax.swing.JPasswordField" name="nothingpasswordfield">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Password"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField1">
+            <Component class="javax.swing.JTextField" name="nothingusernamefield">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Username"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="nothingbutton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Go?"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nothingbuttonActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
