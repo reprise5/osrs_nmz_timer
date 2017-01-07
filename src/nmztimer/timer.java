@@ -324,6 +324,7 @@ public class timer extends javax.swing.JFrame {
             
             sSeconds = Integer.toString(seconds);
             screen.setText(sSeconds);
+            timeProgressBar.setMaximum(seconds);
             timeProgressBar.setValue(ticks);
         }
         else{
@@ -332,7 +333,9 @@ public class timer extends javax.swing.JFrame {
             
             sSeconds = Integer.toString(seconds);
             screen.setText(sSeconds);
+            timeProgressBar.setMaximum(seconds);
             timeProgressBar.setValue(ticks);
+            
         }
     }//GEN-LAST:event_RESETbuttonActionPerformed
  
