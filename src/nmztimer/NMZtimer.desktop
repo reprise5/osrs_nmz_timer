@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=NMZ-timer
+GenericName=NMZ-timer
+Comment=start OSRS NMZ timer
+Categories=Game;
+Exec=java -jar /home/reprise/Dropbox/Programming/01\ Java/nmzTimer/dist/nmzTimer.jar 
+Terminal=false
+StartupNotify=false
+Type=Application
+Icon=/home/reprise/Dropbox/Programming/01 Java/nmzTimer/src/nmztimer/icon/alarm_ico.png
+Name[en_US]=NMZ-timer
+Comment[en_US.UTF-8]=Tick Tock, you must restock.
