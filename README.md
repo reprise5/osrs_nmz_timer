@@ -33,7 +33,7 @@ ___________________________________________________________
 | 7     | 64-67   | +23   | 15    | 96-99   | +31   |
 
 ###How this table is used in the code
-In timer.java, there's a single dimensional array `ppointsTable` declared with boost values in it.  `lvlComboBox` index corresponds directly with the index in that array.  This table shows how the two line up.  **For Example:** When a user picks a level, say 40-43, it's index is 1.  Doing a lookup in the `ppointsTable` array in index 1, gives a boost of 9 points.
+In timer.java, there's a single dimensional array `ppointsTable` declared with boost values in it.  `lvlComboBox` index corresponds directly with the index in that array.  This table shows how the two line up.  **For Example:** When a user picks a level, say 40-43, it's index is 1.  Doing a lookup in the `ppointsTable` array in index 1, gives a boost of +17 points.
 
 ###Finding correct seconds based on Level
 ```java
