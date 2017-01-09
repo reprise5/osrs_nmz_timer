@@ -6,8 +6,6 @@ import java.util.Timer;
 import java.io.File;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
-import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 
 /**
  * @author reprise
@@ -23,7 +21,7 @@ public class timer extends javax.swing.JFrame {
     private void initComponents() {
 
         tassetsCB3 = new javax.swing.JCheckBox();
-        potionTypeTabbedPane = new javax.swing.JTabbedPane();
+        tabbedPane1 = new javax.swing.JTabbedPane();
         PrayerPotionPanel = new javax.swing.JPanel();
         dosageCombobox = new javax.swing.JComboBox();
         GObutton = new javax.swing.JButton();
@@ -39,18 +37,9 @@ public class timer extends javax.swing.JFrame {
         meleeLabel = new javax.swing.JLabel();
         nothingPanel = new javax.swing.JPanel();
         BonusLabel = new javax.swing.JLabel();
-        MitreCB = new javax.swing.JCheckBox();
-        BonusScreen = new javax.swing.JTextField();
-        ardyCloakCB = new javax.swing.JCheckBox();
-        stoleCB = new javax.swing.JCheckBox();
-        crozierCB = new javax.swing.JCheckBox();
-        offhandCB = new javax.swing.JCheckBox();
-        hauberkCB = new javax.swing.JCheckBox();
-        tassetsCB = new javax.swing.JCheckBox();
-        holySandalsCB = new javax.swing.JCheckBox();
-        HwrapsCB = new javax.swing.JCheckBox();
-        godRingiCB = new javax.swing.JCheckBox();
-        BlessingCB = new javax.swing.JCheckBox();
+        bonusScreen = new javax.swing.JTextField();
+        useCheckBox = new javax.swing.JCheckBox();
+        jLabel3 = new javax.swing.JLabel();
 
         tassetsCB3.setText("P Tasset");
         tassetsCB3.setToolTipText("");
@@ -64,8 +53,8 @@ public class timer extends javax.swing.JFrame {
         setName("frame"); // NOI18N
         setResizable(false);
 
-        potionTypeTabbedPane.setToolTipText("Counts down doses of super strength & super attack potions.");
-        potionTypeTabbedPane.setPreferredSize(new java.awt.Dimension(331, 174));
+        tabbedPane1.setToolTipText("Counts down doses of super strength & super attack potions.");
+        tabbedPane1.setPreferredSize(new java.awt.Dimension(331, 174));
 
         PrayerPotionPanel.setToolTipText("Counts down doses of prayer potion");
 
@@ -143,7 +132,7 @@ public class timer extends javax.swing.JFrame {
                                     .addComponent(RESETbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel2))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         PrayerPotionPanelLayout.setVerticalGroup(
             PrayerPotionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -184,82 +173,36 @@ public class timer extends javax.swing.JFrame {
                 .addContainerGap(9, Short.MAX_VALUE))
         );
 
-        potionTypeTabbedPane.addTab("Prayer Potion", null, PrayerPotionPanel, "");
+        tabbedPane1.addTab("Prayer Potion", null, PrayerPotionPanel, "");
 
-        BonusLabel.setText("calculated bonus from items");
+        BonusLabel.setText("Enter Prayer Bonus");
 
-        MitreCB.setText("Mitre");
+        bonusScreen.setText("0");
 
-        BonusScreen.setEditable(false);
-        BonusScreen.setText("0");
+        useCheckBox.setText("Use this bonus");
+        useCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                useCheckBoxActionPerformed(evt);
+            }
+        });
 
-        ardyCloakCB.setText("Ardy Cloak");
-        ardyCloakCB.setToolTipText("");
-
-        stoleCB.setText("Stole");
-        stoleCB.setToolTipText("");
-
-        crozierCB.setText("Crozier ..");
-        crozierCB.setToolTipText("");
-
-        offhandCB.setText("Offhand");
-        offhandCB.setToolTipText("");
-
-        hauberkCB.setText("P Hauberk");
-        hauberkCB.setToolTipText("");
-
-        tassetsCB.setText("P Tasset");
-        tassetsCB.setToolTipText("");
-
-        holySandalsCB.setText("H Sandals");
-        holySandalsCB.setToolTipText("");
-
-        HwrapsCB.setText("H Wraps");
-        HwrapsCB.setToolTipText("");
-
-        godRingiCB.setText("Ring..Gods(i)");
-        godRingiCB.setToolTipText("");
-
-        BlessingCB.setText("Blessings");
-        BlessingCB.setToolTipText("");
+        jLabel3.setText("+");
 
         javax.swing.GroupLayout nothingPanelLayout = new javax.swing.GroupLayout(nothingPanel);
         nothingPanel.setLayout(nothingPanelLayout);
         nothingPanelLayout.setHorizontalGroup(
             nothingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(nothingPanelLayout.createSequentialGroup()
-                .addGroup(nothingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nothingPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(nothingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(nothingPanelLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(BonusScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(BonusLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(nothingPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(nothingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(MitreCB)
-                            .addComponent(crozierCB)
-                            .addComponent(holySandalsCB))
+                        .addComponent(bonusScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(nothingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(nothingPanelLayout.createSequentialGroup()
-                                .addComponent(ardyCloakCB)
-                                .addGap(18, 18, 18)
-                                .addComponent(stoleCB))
-                            .addGroup(nothingPanelLayout.createSequentialGroup()
-                                .addGroup(nothingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(hauberkCB)
-                                    .addComponent(HwrapsCB))
-                                .addGap(18, 18, 18)
-                                .addGroup(nothingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(godRingiCB)
-                                    .addComponent(tassetsCB)))))
-                    .addGroup(nothingPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(offhandCB)
-                        .addGap(18, 18, 18)
-                        .addComponent(BlessingCB)))
-                .addContainerGap(27, Short.MAX_VALUE))
+                        .addComponent(BonusLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(useCheckBox))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
         nothingPanelLayout.setVerticalGroup(
             nothingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -267,30 +210,14 @@ public class timer extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(nothingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BonusLabel)
-                    .addComponent(BonusScreen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bonusScreen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(nothingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(MitreCB)
-                    .addComponent(ardyCloakCB)
-                    .addComponent(stoleCB))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(nothingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(crozierCB)
-                    .addComponent(hauberkCB)
-                    .addComponent(tassetsCB))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(nothingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(holySandalsCB)
-                    .addComponent(HwrapsCB)
-                    .addComponent(godRingiCB))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(nothingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(offhandCB)
-                    .addComponent(BlessingCB))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addComponent(useCheckBox)
+                .addContainerGap(119, Short.MAX_VALUE))
         );
 
-        potionTypeTabbedPane.addTab("Bonuses", nothingPanel);
+        tabbedPane1.addTab("Bonuses", nothingPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -298,14 +225,14 @@ public class timer extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(potionTypeTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(tabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(potionTypeTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -320,23 +247,18 @@ public class timer extends javax.swing.JFrame {
         
         if(dosageCombobox.getSelectedIndex() == 0){
             seconds = PPointsTable[lvlComboBox.getSelectedIndex()];
-            seconds = (int)(seconds * DEPLETION_CONST); 
-            
-            sSeconds = Integer.toString(seconds);
-            screen.setText(sSeconds);
-            timeProgressBar.setMaximum(seconds);
-            timeProgressBar.setValue(ticks);
+            seconds = (int)(seconds * DEPLETION); 
         }
         else{
             seconds = PPointsTable[lvlComboBox.getSelectedIndex()];
-            seconds = (int)((seconds * DEPLETION_CONST) * 2);
-            
-            sSeconds = Integer.toString(seconds);
-            screen.setText(sSeconds);
-            timeProgressBar.setMaximum(seconds);
-            timeProgressBar.setValue(ticks);
-            
+            seconds = (int)((seconds * DEPLETION) * 2);
         }
+        
+        sSeconds = Integer.toString(seconds);
+        screen.setText(sSeconds);
+        timeProgressBar.setMaximum(seconds);
+        timeProgressBar.setValue(ticks);
+            
     }//GEN-LAST:event_RESETbuttonActionPerformed
  
     //Start timing PRAYER POTIONS
@@ -349,12 +271,11 @@ public class timer extends javax.swing.JFrame {
         if (dosage == 0){
             //look in the table for how mant points a dose gives at that level, then mult by the constant to give seconds per dose.
             seconds = PPointsTable[lvlComboBox.getSelectedIndex()];
-            seconds = (int)(seconds * DEPLETION_CONST);
+            seconds = (int)(seconds * DEPLETION);
             
             System.out.println("Counting 1 dose for " + seconds + " seconds." +  "  Dosage Selected_index: " + dosage + "  Level Selected_index: " + lvlComboBox.getSelectedIndex());
             sSeconds = Integer.toString(seconds);
             screen.setText(sSeconds);
-
             
             //Set properties of the progress bar.
             timeProgressBar.setMinimum(0);
@@ -390,11 +311,11 @@ public class timer extends javax.swing.JFrame {
                         //look at dosage combobox. People change their minds.
                         if(dosageCombobox.getSelectedIndex() == 0){
                             seconds = PPointsTable[lvlComboBox.getSelectedIndex()];
-                            seconds = (int)(seconds * DEPLETION_CONST); 
+                            seconds = (int)(seconds * DEPLETION); 
                         }
                         else{
                         seconds = PPointsTable[lvlComboBox.getSelectedIndex()];
-                        seconds = (int)((seconds * DEPLETION_CONST) * 2);
+                        seconds = (int)((seconds * DEPLETION) * 2);
                         }
                         ticks = 0;
                       
@@ -411,12 +332,11 @@ public class timer extends javax.swing.JFrame {
         else if (dosage == 1){
             //look in the table for how mant points a dose gives at that level, then mult by the constant to give seconds per dose.
             seconds = PPointsTable[lvlComboBox.getSelectedIndex()];
-            seconds = (int)((seconds * DEPLETION_CONST) * 2);
+            seconds = (int)((seconds * DEPLETION) * 2);
             
             System.out.println("Counting 2 doses for " + seconds + " seconds." +  "  Dosage Selected_index: " + dosage + "  Level Selected_index: " + lvlComboBox.getSelectedIndex());
             sSeconds = Integer.toString(seconds);
             screen.setText(sSeconds);
-
             
             //Set properties of the progress bar.
             timeProgressBar.setMinimum(0);
@@ -452,11 +372,11 @@ public class timer extends javax.swing.JFrame {
                         //look at dosage combobox. People change their minds.
                         if(dosageCombobox.getSelectedIndex() == 0){
                             seconds = PPointsTable[lvlComboBox.getSelectedIndex()];
-                            seconds = (int)(seconds * DEPLETION_CONST); 
+                            seconds = (int)(seconds * DEPLETION); 
                         }
                         else{
                         seconds = PPointsTable[lvlComboBox.getSelectedIndex()];
-                        seconds = (int)((seconds * DEPLETION_CONST) * 2);
+                        seconds = (int)((seconds * DEPLETION) * 2);
                         }
                         ticks = 0;
                       
@@ -469,6 +389,34 @@ public class timer extends javax.swing.JFrame {
             }, 1000,1000);
         }
     }//GEN-LAST:event_GObuttonActionPerformed
+
+    //if box is checked, auto-flips user back to main timer screen.
+    private void useCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_useCheckBoxActionPerformed
+        String sBonus = bonusScreen.getText();
+        
+        try{
+            bonus = Integer.parseInt(sBonus); 
+        }
+        catch (NumberFormatException nfe){
+            useCheckBox.setSelected(false);
+        }   
+        
+        if(useCheckBox.isSelected() && bonus <= 61){
+            tabbedPane1.setSelectedIndex(0);
+        }
+        else useCheckBox.setSelected(false);
+        
+        /*
+         *We are going to calculate the new constant right here.
+         *EQUATION:     NewRate = RawRate * (1 + ( bonus / 30 ) )
+         *where RawRate is 3 (default depletion rate).
+         */
+        
+        DEPLETION = (((bonus / 30) + 1) * 3);
+        System.out.println("Bonus: " + bonus);
+        System.out.println("New Depletion Constant Calculated: " + DEPLETION );
+            
+    }//GEN-LAST:event_useCheckBoxActionPerformed
 
     //Sub that tries to play an audio stream when the timer hits 0.  it fails to do so
     public void alert(File alert){
@@ -485,11 +433,6 @@ public class timer extends javax.swing.JFrame {
     }
 
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -517,35 +460,26 @@ public class timer extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox BlessingCB;
     private javax.swing.JLabel BonusLabel;
-    private javax.swing.JTextField BonusScreen;
     private javax.swing.JButton GObutton;
-    private javax.swing.JCheckBox HwrapsCB;
-    private javax.swing.JCheckBox MitreCB;
     private javax.swing.JPanel PrayerPotionPanel;
     private javax.swing.JLabel ProgressLabel;
     private javax.swing.JButton RESETbutton;
-    private javax.swing.JCheckBox ardyCloakCB;
-    private javax.swing.JCheckBox crozierCB;
+    private javax.swing.JTextField bonusScreen;
     private javax.swing.JComboBox dosageCombobox;
-    private javax.swing.JCheckBox godRingiCB;
-    private javax.swing.JCheckBox hauberkCB;
-    private javax.swing.JCheckBox holySandalsCB;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JComboBox lvlComboBox;
     private javax.swing.JLabel mageLabel;
     private javax.swing.JLabel meleeLabel;
     private javax.swing.JLabel missilesLabel;
     private javax.swing.JPanel nothingPanel;
-    private javax.swing.JCheckBox offhandCB;
-    private javax.swing.JTabbedPane potionTypeTabbedPane;
     private javax.swing.JTextField screen;
-    private javax.swing.JCheckBox stoleCB;
-    private javax.swing.JCheckBox tassetsCB;
+    private javax.swing.JTabbedPane tabbedPane1;
     private javax.swing.JCheckBox tassetsCB3;
     private javax.swing.JProgressBar timeProgressBar;
+    private javax.swing.JCheckBox useCheckBox;
     // End of variables declaration//GEN-END:variables
 
     //Globals
@@ -554,11 +488,11 @@ public class timer extends javax.swing.JFrame {
     int dosage = 0;                         //dosage combobox index.  how many doses of prayer potion to count down for.
     int prayerLevelIndex;                   //lvlCombobox index.  used for lookup in PrayerPoints Table to find # points from 1 dose.
     String sSeconds;                        //string version of seconds to send to label. 
- 
+    int bonus = 0;                          //Bonus from items to be calculated to find DEPLETION constant.  if neglected, 3.45.
     
     File alert = new File("/nmzTimer/src/nmztimer/sound/time.wav");   //sound file declaration
     
-    final double DEPLETION_CONST = 3.45;    //one point of potion is depleted every 3.45 seconds with protection prayer on (AVERAGED)
+    double DEPLETION = 3.45;    //one point of potion is depleted every 3.45 seconds with protection prayer on (AVERAGED)
     
     final Timer ppotTimer = new Timer();    //timer object that counts PPOT doses.
     int[] PPointsTable = {16,17,18,19,20,21,22,23,      //This table corresponds with combobox index. PPOTs replenesh

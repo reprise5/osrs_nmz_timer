@@ -63,7 +63,7 @@ NewRate = RawRate * (1 + ( bonus / 30 ) )
 **For example** , if the player's items gave them prayer bonus of +15, their drainage rate is slowed by 0.5 seconds. 
 ```
 3 × (1 + (15/30) ) = newRate
-3 × (1 + 0.5) = 4.5`
+3 × (1 + 0.5) = 4.5
 ```
 the new constant would be 4.5, or one point drained every 4.5 seconds.
 
