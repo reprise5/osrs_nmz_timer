@@ -401,21 +401,23 @@ public class timer extends javax.swing.JFrame {
             useCheckBox.setSelected(false);
         }   
         
-        if(useCheckBox.isSelected() && bonus <= 61){
+        if(useCheckBox.isSelected() && bonus <= 61 && bonus > 0){
             tabbedPane1.setSelectedIndex(0);
-        }
-        else useCheckBox.setSelected(false);
-        
-        /*
-         *We are going to calculate the new constant right here.
-         *EQUATION:     NewRate = RawRate * (1 + ( bonus / 30 ) )
-         *where RawRate is 3 (default depletion rate).
-         */
-        
-        DEPLETION = (((bonus / 30) + 1) * 3);
-        System.out.println("Bonus: " + bonus);
-        System.out.println("New Depletion Constant Calculated: " + DEPLETION );
             
+            /*
+             *We are going to calculate the new constant right here.
+             *EQUATION:     NewRate = RawRate * (1 + ( bonus / 30 ) )
+             *where RawRate is 3 (default depletion rate).
+             */      
+            DEPLETION = 3.00 * ( 1 + (bonus / 30.0));
+            System.out.println("Bonus: " + bonus);
+            System.out.println("New Depletion Constant Calculated: " + DEPLETION );
+            RESETbuttonActionPerformed(evt);
+        }
+        else{ 
+            useCheckBox.setSelected(false);
+            bonus = 0;
+        }   
     }//GEN-LAST:event_useCheckBoxActionPerformed
 
     //Sub that tries to play an audio stream when the timer hits 0.  it fails to do so
@@ -488,11 +490,11 @@ public class timer extends javax.swing.JFrame {
     int dosage = 0;                         //dosage combobox index.  how many doses of prayer potion to count down for.
     int prayerLevelIndex;                   //lvlCombobox index.  used for lookup in PrayerPoints Table to find # points from 1 dose.
     String sSeconds;                        //string version of seconds to send to label. 
-    int bonus = 0;                          //Bonus from items to be calculated to find DEPLETION constant.  if neglected, 3.45.
+    double bonus = 0.0;                          //Bonus from items to be calculated to find DEPLETION constant.  if neglected, 3.45.
     
     File alert = new File("/nmzTimer/src/nmztimer/sound/time.wav");   //sound file declaration
     
-    double DEPLETION = 3.45;    //one point of potion is depleted every 3.45 seconds with protection prayer on (AVERAGED)
+    double DEPLETION = 3.47;    //one point of potion is depleted every 3.45 seconds with protection prayer on (AVERAGED)
     
     final Timer ppotTimer = new Timer();    //timer object that counts PPOT doses.
     int[] PPointsTable = {16,17,18,19,20,21,22,23,      //This table corresponds with combobox index. PPOTs replenesh

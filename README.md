@@ -70,4 +70,15 @@ the new constant would be 4.5, or one point drained every 4.5 seconds.
 This program Uses 3.45 as the constant, and does not account for an exact prayer bonus from items yet.
 
 ###Bonus Tab
-This tab is where those item bonuses WOULD be accounted for.  if you checked "Ardy Cloak 4" for example, the program would keep a tally of how many points are added up in total, and plug it into the above eqation.  Checking the ardy cloak checkbox would result in TotalBonus += 6.  This part of the program is under development.
+In this tab you simply add the prayer bonus number you see on your character equipment screen, then tick the "use this Bonus" checkbox.  Once you do, it will take the bonus and calculate the new Constant and factor it in and find the new amount of seconds to count down.  it will automatically switch tabs back to the main tab, and hit the calculate button for you.  you only need to hit GO (assuming you picked the right level before adding a bonus).
+
+Currently after 4 runs with a stopwatch and the program side by side:
+
+| P Bonus | Const | Program secs | Actual | 
+| :-----: |:-----:| :----------: | :----: |
+| +0      |3.47   | 79           | 80     |
+| +20     |3.57833| 115          | 117    |
+| +31     |6.1    | 140          | 143    |
+
+P Bonus is prayer bonus from items, const is how many seconds it takes to drain one point, program secs is how long the program thinks it will take to drain one dose, actual is how long it actually took to drain one dose. The program is slightly off, but I think the casting (to int) is to blame, I think it's rounding the decimal down, instead of up.
+
