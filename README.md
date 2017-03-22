@@ -10,7 +10,7 @@ the window is set to "always on top", so it hovers over your game window.
 
 ### Screenshots
 
-![alt tag] (https://github.com/reprise5/osrs_nmz_timer/blob/master/Screenshot.png)
+![alt tag](https://github.com/reprise5/osrs_nmz_timer/blob/master/Screenshot.png)
 
 ### I'm not a programmer, I just want to use it
 
