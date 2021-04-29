@@ -37,12 +37,10 @@ In timer.java, there's a single dimensional array `ppointsTable` declared with b
 ### Finding correct seconds based on Level
 ```java
 //One Dose of Potion
-seconds = PPointsTable[lvlComboBox.getSelectedIndex()];
-seconds = (int)(seconds * DEPLETION_CONST);
+seconds = (int)(PPointsTable[lvlComboBox.getSelectedIndex()] * DEPLETION_CONST);
 
 //Two Dose of Potion
-seconds = PPointsTable[lvlComboBox.getSelectedIndex()];
-seconds = (int)((seconds * DEPLETION_CONST) * 2);
+seconds = (int)((PPointsTable[lvlComboBox.getSelectedIndex()] * DEPLETION_CONST) * 2);
 ```
 Performing a lookup in the `ppointsTable` array using the selected index of `lvlComboBox`.  Save the value to seconds,
 Then multiply the seconds by the drainage constant, and cast to an int. (since the drainage constant is a double.) If there are TWO doses of potion being used, the procedure is the same, only perform the calculation with the constant first,
